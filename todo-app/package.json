@@ -1,5 +1,5 @@
 {
-  "name": "week4-nodejs-http",
+  "name": "todo-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,11 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "chalk": "^5.4.0",
-    "commander": "^12.1.0",
-    "expres": "^0.0.5",
-    "express": "^4.21.2",
-    "fs": "^0.0.1-security",
-    "nodemon": "^3.1.9"
+    "express": "^4.21.2"
   }
 }
