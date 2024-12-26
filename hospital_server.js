@@ -36,9 +36,15 @@ app.post("/", (req, res) => {
   users[0].kidneys.push({
     healthy: isHealthy,
   });
-  res.json({
-    msg: "Done!",
-  });
+  if (isHealthy == true) {
+    res.json({
+      msg: "Healthy kidney is added!",
+    });
+  } else {
+    res.json({
+      msg: "Unhealthy is added!",
+    });
+  }
 });
 
 app.put("/", (req, res) => {
@@ -47,11 +53,11 @@ app.put("/", (req, res) => {
       users[0].kidneys[i].healthy = true;
     }
     res.json({
-      msg: "kidneys are updated!",
+      msg: "All the kidneys are converted to healthy!",
     });
   } else {
     res.status(411).json({
-      msg: "there are no unhealthy kidneys",
+      msg: "There are no unhealthy kidneys!",
     });
   }
 });
@@ -68,11 +74,11 @@ app.delete("/", (req, res) => {
     }
     users[0].kidneys = newKidneys;
     res.json({
-      msg: "unhealthy kidneys are deleted!",
+      msg: "Unhealthy kidneys are deleted!",
     });
   } else {
     res.status(411).json({
-      msg: "you don't have unhealthy kidney present!",
+      msg: "You don't have any unhealthy kidney present!",
     });
   }
 });
