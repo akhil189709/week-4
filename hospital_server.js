@@ -15,6 +15,7 @@ let users = [
 ];
 app.use(express.json());
 
+///this route is to get all the kidneys!
 app.get("/", (req, res) => {
   let akhilkidneys = users[0].kidneys;
   let numberOfKidneys = akhilkidneys.length;
@@ -31,6 +32,8 @@ app.get("/", (req, res) => {
     numberOfUnhealthyKidneys,
   });
 });
+
+//this route is to add a new kidney whether it is a healthy or unhealthy
 app.post("/", (req, res) => {
   const isHealthy = req.body.isHealthy;
   users[0].kidneys.push({
@@ -47,6 +50,7 @@ app.post("/", (req, res) => {
   }
 });
 
+//this route is to convert all the unhealthy kidneys to healthy kidneys
 app.put("/", (req, res) => {
   if (isThereatleastOneUnhealthyKidney()) {
     for (let i = 0; i < users[0].kidneys.length; i++) {
@@ -62,6 +66,7 @@ app.put("/", (req, res) => {
   }
 });
 
+//this route is to delete the unhealthy kidney!
 app.delete("/", (req, res) => {
   if (isThereatleastOneUnhealthyKidney()) {
     const newKidneys = [];
